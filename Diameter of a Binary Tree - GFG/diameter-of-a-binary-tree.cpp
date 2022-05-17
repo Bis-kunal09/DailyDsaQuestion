@@ -102,14 +102,14 @@ class Solution {
     int r = solve(root->right, res);
     
     int temp = 1 + max(l,r);
-    res = max(res, l + r);
+    res = max(res, 1+l + r);
     
     return temp;
 }
     int diameter(Node* root) {
         int res=INT_MIN;
         solve(root,res);
-        return res+1;
+        return res;
     }
 };
 
