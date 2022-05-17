@@ -11,10 +11,10 @@
 class Solution {
 public:
     void f(TreeNode* original, TreeNode* cloned, TreeNode* target,TreeNode* &ans){
-        if(original==NULL||cloned==NULL){
+        if(original==NULL){
             return;
         }
-        if(original->val==cloned->val&&original==target){
+        if(original==target){
             ans=cloned;
             return;
         }
