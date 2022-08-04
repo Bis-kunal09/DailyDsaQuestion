@@ -11,26 +11,24 @@
  */
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
+    int f(TreeNode* root){
         if(root==NULL){
             return 0;
         }
-        int left=maxDepth(root->left);
-        int right=maxDepth(root->right);
-        return 1+max(left,right);
-        
+        int lh=f(root->left);
+        if(lh==-1){
+            return -1;
+        }
+        int rh=f(root->right);
+        if(rh==-1){
+            return -1;
+        }
+        if(abs(lh-rh)>1){
+            return -1;
+        }
+        return max(lh,rh)+1;
     }
     bool isBalanced(TreeNode* root) {
-        if(root==NULL){
-            return true;
-        }
-        int lh=maxDepth(root->left);
-        int rh=maxDepth(root->right);
-        if(abs(lh-rh)>1){
-            cout<<lh<<" "<<rh<<" "<<root->val<<endl;
-            return false;
-        }
-        
-        return isBalanced(root->left)&&isBalanced(root->right);
+        return f(root)!=-1;
     }
 };
