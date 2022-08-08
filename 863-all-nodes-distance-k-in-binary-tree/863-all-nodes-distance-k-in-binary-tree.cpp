@@ -37,7 +37,7 @@ public:
         fun(root->left,k-1,m,vis,ans);
         fun(root->right,k-1,m,vis,ans);
         fun(m[root],k-1,m,vis,ans);
-        vis[root->val]=0;
+        
         
         
     }
